@@ -37,10 +37,11 @@ app.get(/.*;.*/, function (req, res) {
     var urls = new Array;
     var urlIndex = 0;
     for (i = 1; i < fields.length; i++) {
-        if (/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/.test(fields[1])) {
-            urls[urlIndex] = fields[i];
-            urlIndex++;
-        }
+        //  TODO : validation of url 
+        // if (/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/.test(fields[1])) {
+        urls[urlIndex] = fields[i];
+        urlIndex++;
+        // }
     }
     for (i = 0; i < urls.length; i++) {
         console.log(urls[i]);
@@ -58,7 +59,7 @@ app.get(/.*;.*/, function (req, res) {
             var newUrl = new shortUrl({ url: longUrl, shortUrl: shortened });
             newUrl.save(function (err, newUrl) {
                 console.log("saved!");
-                res.render('success', { shortUrl: shortened, urls:longUrl });
+                res.render('success', { shortUrl: shortened, urls: longUrl });
             });
         }
     });
@@ -103,7 +104,7 @@ app.post('/newUrl', function (req, res) {
             shortUrl.findOne({ shortUrl: shortened }, function (err, data) {
                 if (data != null) {
                     //check if already exists
-                    nid-=6000;      //6000 is arbitrary
+                    nid -= 6000;      //6000 is arbitrary
                     shortened = nid.toString(36);
                     var newUrl = new shortUrl({ url: req.body.longUrl, shortUrl: shortened });
                     newUrl.save(function (err, newUrl) {
@@ -125,7 +126,7 @@ app.post('/newUrl', function (req, res) {
         });
     }
     // console.log("New URL ENTRY \tNo. of Urls :" + req.body.longUrl.length + "\tShortened to:" + shortened);
-   shortUrl.findOne({ shortUrl: shortened }, function (err, data) {
+    shortUrl.findOne({ shortUrl: shortened }, function (err, data) {
         if (data != null) {
             //check if already exists
 
