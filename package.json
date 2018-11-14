@@ -1,0 +1,17 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node server.js",
+  },
+  "private": true,
+  "dependencies": {
+    "core-js": "^2.5.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.12",
+    "opn": "^5.4.0",
+    "rxjs": "~6.2.0",
+    "zone.js": "~0.8.26"
+  }
+}
