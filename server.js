@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.listen(4002);
+// app.listen(4002);
 
 // app.get('/favicon.ico', function (req, res) {
 //     console.log("Favicon Requested !");
@@ -65,3 +65,8 @@ app.post('/newUrl', function (req, res) {
         res.render('success', { shortUrl: shortened, urls: req.body.longUrl });
     });
 });
+
+var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
