@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <title>Url Shortener</title>
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="css/colorful.css">
+  <!-- Script: Navbar on-top -->
+  <script src="js/navbar-ontop.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><b>yaus@krishtna.xyz</b></a>
+      <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent"
+        aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar3SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#why">Features</a>
+          </li>
+          <li class="nav-item mx-2 mb-2 my-md-0">
+            <a class="btn navbar-btn btn-outline-light" href="#contact">About Me</a>
+          </li>
+        </ul>
+        <!-- <a class="btn navbar-btn btn-outline-light" href="#where">Where</a> -->
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center cover d-flex flex-column bg-dark" style="">
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-md-12">
+          <% if(urlPath.length!=0){%>
+            <h1 class="display-1 mb-0 mt-5 big-title">Oops !</h1>
+            </div>
+            </div>
+            <div class="row">
+              <div class="mx-auto col-lg-6 col-md-8">
+                <h3 class="mb-4">The requested URL was not found !</h3>
+                <p>But, we have preloaded the URL in the form incase you wanted to create one<br></p>
+              </div>
+            </div>
+        <%}
+
+        else{%>
+          <h1 class="display-1 mb-0 mt-5 big-title">krishtna.xyz</h1>
+          </div>
+          </div>
+          <div class="row">
+            <div class="mx-auto col-lg-6 col-md-8">
+              <h3 class="mb-4">Yet another URL Shortner</h3>
+              <p>with a few extra features and Auto Renewal<br></p>
+            </div>
+          </div>
+        <%}%>
+  <div class="row">
+    <div class="col-md-12">
+      <form class="" action="/newUrl" method="POST">
+        <div class="row">
+          <div class="col-md-12"></div>
+        </div>
+        <div class="field_wrapper">
+          <div class="form-group"><input name="longUrl[]" type="url" class="form-control" placeholder="Url to be shortened"
+              required></div>
+        </div>
+        <a href="javascript:void(0);" class="btn navbar-btn btn-sm add_button" title="Add field">Add Another
+          URL</a>
+        <!-- <br> -->
+        <!-- <label>Customized Shortened URL</label> -->
+        <div class="form-group"> <input type="text" name="custom" class="form-control" placeholder="Custom Alias for shortening"
+            value="<%=urlPath%>">
+        </div><small class="form-text text-muted">Custom URLs are optional. If not given, we'll generate one for you
+        </small>
+        <button type="submit" class="btn btn-primary">Shorten !</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  <div class="container mt-auto">
+    <div class="row">
+      <div class="mx-auto col-lg-6 col-md-8 col-10">
+        <a href="#why"><i class="d-block fa fa-angle-down fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="py-5 bg-light" id="why">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-10 mx-auto px-4">
+          <h2 class="text-muted mb-4">Why use this ?<br></h2>
+          <div class="row text-left">
+            <div class="p-3 col-lg-4 col-md-6">
+              <div class="row mb-3">
+                <div class="text-center col-3"><i class="d-block mx-auto fa text-muted fa-4x fa-link"></i></div>
+                <div class="align-self-center d-flex align-items-center px-0 px-md-2 col-9">
+                  <h5 class="mb-0"><b>Shortens URLs</b></h5>
+                </div>
+              </div>
+              <p class="text-muted">Shorten multiple URLs with one common alias</p>
+            </div>
+            <div class="p-3 col-lg-4 col-md-6">
+              <div class="row mb-3">
+                <div class="text-center col-3"><i class="d-block mx-auto fa text-muted fa-4x fa-clock-o"></i></div>
+                <div class="align-self-center d-flex align-items-center px-0 px-md-2 col-9">
+                  <h5 class="mb-0"><b>24 hour URL validity</b></h5>
+                </div>
+              </div>
+              <p class="text-muted">Custom URL is valid for 24 hours and the 24 hour duration is refreshed for each
+                visit</p>
+            </div>
+            <div class="p-3 col-lg-4">
+              <div class="row mb-3">
+                <div class="text-center col-3"><i class="d-block mx-auto fa text-muted fa-4x fa-flash"></i></div>
+                <div class="align-self-center d-flex align-items-center px-0 px-md-2 col-9">
+                  <h5 class="mb-0"><b>&nbsp;</b><b>Lighting Add&nbsp;</b></h5>
+                </div>
+              </div>
+              <p class="text-muted">Add cusom URLs directly via the address bar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-white bg-dark" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="p-5 col-md-6">
+          <h3><b>Krishtna.xyz</b></h3>
+          <p class="">Amrita Vishwa Vidyapeetham</p>
+          <p class="">
+            <a href="#">k</a>rishtna999@gmail.com</p>
+          <p class="mb-3">India</p>
+          <a href="#" target="_blank"><i class="fa d-inline fa-lg mr-3 text-white fa-linkedin"></i></a>
+        </div>
+        <div class="p-5 col-md-6">
+          <h3>Get in touch</h3>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control form-control-sm" placeholder="Email" required="required" name="email">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-control-sm" id="inlineFormInput" placeholder="Subject"
+                required="required" name="subject"> </div>
+            <div class="form-group"><textarea class="form-control p-1 form-control-sm" id="exampleTextarea" rows="3"
+                placeholder="Your message" name="message"></textarea></div>
+            <button type="submit" class="btn btn-outline-light btn-sm">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <p class="text-center text-muted">© Copyright 2018 krishtna.xyz - All rights reserved. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <!-- Script: Smooth scrolling between anchors in the same page -->
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/duplicate.js"></script>
+
+</body>
+
+</html>
