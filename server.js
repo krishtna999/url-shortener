@@ -10,15 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-function open(url) {
-    console.log("In open !");
-    // var url = 'http://localhost';
-    var start = (process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open');
-    require('child_process').exec(start + ' ' + url);
-
-
-}
-
 app.get('/', function (req, res) {
     // console.log('YOLO');
     res.render('home', { urlPath: "" });
@@ -90,11 +81,11 @@ app.get('/:path', function (req, res) {
         }
         else {
             // console.log("Found a match and redirect to :" + data.url.length);
-            for (i = 1; i < data.url.length; i++) {
-                console.log("Opening :" + data.url[i]);
-                open(data.url[i]);
-            }
-            res.redirect(data.url[0]);
+            // for (i = 1; i < data.url.length; i++) {
+            //     console.log("Opening :" + data.url[i]);
+            //     open(data.url[i]);
+            // }
+            res.render('redirect.ejs',{urls:data.url})
         }
     });
 });
