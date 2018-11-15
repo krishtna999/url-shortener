@@ -81,7 +81,7 @@ app.get('/:path', function (req, res) {
         console.log("Failed Regex, Sending back to home");
         res.render('home', { urlPath: "This_URL_has_illegal_characters!" });
     }
-    console.log("Got a path request to :" + path);
+    console.log("Got a path request(s) to :" + path);
     shortUrl.findOne({ shortUrl: path }, function (err, data) {
         // if(data.length>0){
         if (data == null) {
