@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var open = require("opn");
+// var open = require("opn");
 var shortUrl = require('./models/shortUrl');
 var app = express();
 
@@ -10,6 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+function open(url) {
+    console.log("In open !");
+    // var url = 'http://localhost';
+    var start = (process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open');
+    require('child_process').exec(start + ' ' + url);
+
+
+}
 
 app.get('/', function (req, res) {
     // console.log('YOLO');
