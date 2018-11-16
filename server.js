@@ -85,7 +85,12 @@ app.get('/:path', function (req, res) {
             //     console.log("Opening :" + data.url[i]);
             //     open(data.url[i]);
             // }
-            res.render('redirect.ejs',{urls:data.url})
+            if (data.url.length == 1) {
+                res.redirect(data.url[0]);
+            }
+            else {
+                res.render('redirect.ejs', { urls: data.url })
+            }
         }
     });
 });
