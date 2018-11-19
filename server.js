@@ -11,12 +11,11 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    // console.log('YOLO');
     res.render('home', { urlPath: "" });
 
 });
 
-app.get(/.*;.*/, function (req, res) {
+app.get(/.*;.*/, function (req, res) {      //DIRECT ADD FEATURE
     // localhost:8080   /lol;https://unix.stackexchange.com/questions/106561/finding-the-pid-of-the-process-using-a-specific-port;https://duckduckgo.com/?q=url+reg+exp&t=ffab&ia=web;https://www.regextester.com/20
     console.log("haha");
     var urlStr = req.url;
@@ -46,12 +45,10 @@ app.get(/.*;.*/, function (req, res) {
         console.log(urls[i]);
     }
 
-    // console.log("New URL ENTRY \tNo. of Urls :" + req.body.longUrl.length + "\tShortened to:" + shortened);
     var longUrl = urls;
     shortUrl.findOne({ shortUrl: shortened }, function (err, data) {
         if (data != null) {
             //check if already exists
-
             res.render('home', { urlPath: "URL_already_exists" });
         }
         else {
@@ -65,7 +62,7 @@ app.get(/.*;.*/, function (req, res) {
 });
 
 
-app.get('/:path', function (req, res) {
+app.get('/:path', function (req, res) {         //Shortened Path
 
     var path = req.params.path;
     if (/^[a-zA-z0-9]*$/.test(path) == false) {
@@ -74,17 +71,11 @@ app.get('/:path', function (req, res) {
     }
     console.log("Got a path request(s) to :" + path);
     shortUrl.findOne({ shortUrl: path }, function (err, data) {
-        // if(data.length>0){
         if (data == null) {
             console.log("NOT FOUND !");
             res.render('home', { urlPath: path });
         }
         else {
-            // console.log("Found a match and redirect to :" + data.url.length);
-            // for (i = 1; i < data.url.length; i++) {
-            //     console.log("Opening :" + data.url[i]);
-            //     open(data.url[i]);
-            // }
             if (data.url.length == 1) {
                 res.redirect(data.url[0]);
             }
@@ -129,7 +120,6 @@ app.post('/newUrl', function (req, res) {
             });
         });
     }
-    // console.log("New URL ENTRY \tNo. of Urls :" + req.body.longUrl.length + "\tShortened to:" + shortened);
     shortUrl.findOne({ shortUrl: shortened }, function (err, data) {
         if (data != null) {
             //check if already exists
@@ -149,5 +139,5 @@ app.post('/newUrl', function (req, res) {
 
 var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
-    console.log("App now running on port", port);
+    console.log("Running on port :", port);
 });
