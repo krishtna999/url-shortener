@@ -1,5 +1,5 @@
-# url-shortener-mean
-URL shortener using Express and Ejs
+# url-shortener
+URL shortener using Node and Ejs
 
 Check it out now hosted @
 
