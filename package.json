@@ -9,7 +9,7 @@
     "core-js": "^2.5.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.3.12",
+    "mongoose": "^5.7.5",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-ttl": "0.0.3",
     "opn": "^5.4.0",
