@@ -8,7 +8,7 @@
   "dependencies": {
     "core-js": "^2.5.4",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "mongoose": "^5.3.12",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-ttl": "0.0.3",
